@@ -1,0 +1,38 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: node-kube-app-service
+spec:
+  selector:
+    app: node-kube-app
+  ports:
+    - protocol: "TCP"
+      # Port accessible inside cluster (containerPort in Deployment)clear
+      port: 8081
+      # Port to forward to inside the pod
+      targetPort: 8080 # Rancher Port mapping (publish the container port)
+      # Port accessible outside cluster
+      nodePort: 30001
+  type: LoadBalancer
+
+
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: node-kube-app-deployment
+spec:
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: node-kube-app
+    spec:
+      containers:
+        - name: node-kube-app
+          image: jarlerik/node-kube-app
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081

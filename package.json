@@ -1,0 +1,14 @@
+{
+  "name": "node-kube",
+  "version": "1.0.0",
+  "description": "Testing kubernetes with node",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Jarl-Erik Malmström",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
