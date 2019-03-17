@@ -11,6 +11,8 @@ pipeline:
     repo: jarlerik/node-kude-app
     tags: ["commit_${DRONE_COMMIT}","build_${DRONE_BUILD_NUMBER}", "latest"]
     secrets: [ dockerhub_username, dockerhub_password ]
+    commands:
+      - docker login
     when:
       event: [ push ]
       branch: master
