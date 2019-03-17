@@ -4,11 +4,16 @@
   "description": "Testing kubernetes with node",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "tests": "mocha"
   },
   "author": "Jarl-Erik Malmström",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
   }
 }
