@@ -6,9 +6,10 @@ pipeline:
       - npm run tests
   publish:
     image: plugins/docker
+    registry: hub.docker.com
     dockerfile: Dockerfile
     repo: jarlerik/node-kude-app
-    tags: [ "${DRONE_COMMIT_SHA:0:7}" ]
+    tags: ["commit_${DRONE_COMMIT}","build_${DRONE_BUILD_NUMBER}", "latest"]
     secrets: [ dockerhub_username, dockerhub_password ]
     when:
       event: [ push ]
