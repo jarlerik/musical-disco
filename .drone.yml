@@ -1,6 +1,5 @@
-kind: pipeline
+pipeline:
 name: default
-
 steps:
 - name: node_backend
   image: node
