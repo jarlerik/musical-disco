@@ -9,8 +9,8 @@ pipeline:
     registry: hub.docker.com
     dockerfile: Dockerfile
     tags: [ "${DRONE_COMMIT_SHA:0:7}" ]
+    repo: jarlerik/node-kude-app
     settings:
-      repo: jarlerik/node-kude-app
       username:
         from_secret: dockerhub_username
       password:
