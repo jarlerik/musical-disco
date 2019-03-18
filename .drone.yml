@@ -9,8 +9,8 @@ pipeline:
     tags: [ "${DRONE_COMMIT_SHA:0:7}" ]
     action: build
     commands:
-      - echo "docker_username: ${DOCKER_USERNAME}"
-      - echo "docker_password: ${DOCKER_PASSWORD}"
+      - echo $DOCKER_USERNAME
+      - echo $DOCKER_PASSWORD
     repo: jarlerik/node-kude-app
     secrets: [docker_username, docker_password ]
     when:
