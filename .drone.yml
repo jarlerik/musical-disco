@@ -10,11 +10,7 @@ pipeline:
     dockerfile: Dockerfile
     tags: [ "${DRONE_COMMIT_SHA:0:7}" ]
     repo: jarlerik/node-kude-app
-    settings:
-      username:
-        from_secret: dockerhub_username
-      password:
-        from_secret: dockerhub_password
+    secrets: [dockerhub_username, dockerhub_password ]
     when:
       event: [ push ]
       branch: master
