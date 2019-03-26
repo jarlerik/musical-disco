@@ -1,0 +1,21 @@
+stages:
+- name: Test
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: |-
+        npm install
+        npm run tests
+- name: Build Image
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: jarlerik/node-kube-app
+      pushRemote: true
+      registry: index.docker.io
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60
