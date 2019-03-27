@@ -6,7 +6,7 @@ pipeline:
       - npm run tests
   publish:
     image: plugins/docker
-    tags: [ "${DRONE_BRANCH}_1.0.${DRONE_BUILD_NUMBER}" ]
+    tags: [ "${DRONE_BRANCH}_1.0.${DRONE_BUILD_NUMBER}", latest ]
     action: build
     secrets: [ docker_username, docker_password ]
     repo: jarlerik/node-kube-app
