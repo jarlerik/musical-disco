@@ -13,4 +13,13 @@ pipeline:
     when:
       event: [ push ]
       branch: master
+  deploy:
+    image: jarlerik/node-kube-app
+    kubernetes_server: https://rancher.vaikia.com/k8s/clusters/c-tskdj
+    kubernetes_token: kubeconfig-user-jrlkt:67jml96fbshzcnx7zfr8wscmxk2z9xg2qfcz9m9g65lnx5jvmzlnbw
+    namespace: vaikia-apps
+    deployment: hello-node-app
+    repo: hub.docker.com/jarlerik/node-kube-app
+    container: my-container
+    tag: "${DRONE_BRANCH}_1.0.${DRONE_BUILD_NUMBER}"
   
