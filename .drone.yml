@@ -20,6 +20,6 @@ pipeline:
     namespace: vaikia-apps
     deployment: hello-node-app
     repo: hub.docker.com/jarlerik/node-kube-app
-    container: my-container
+    container: vaikiacluster
     tag: "${DRONE_BRANCH}_1.0.${DRONE_BUILD_NUMBER}"
   
